@@ -4,6 +4,16 @@ const UserService = require("../services/user.service");
 const UserRouter = express.Router();
 const service = new UserService();
 
+
+UserRouter.post("/signUp", async (req, res, next) => {
+  try {
+    const data = UserController.signUp(req, res);
+    res.status(200).json(data);
+  } catch (error) {
+    next(error);
+  }
+});
+
 UserRouter.get("/", async (req, res, next) => {
   try {
     const data = await service.listUsers();
@@ -36,9 +46,9 @@ UserRouter.get("/:userId", async (req, res, next) => {
 UserRouter.put("/:userId", async (req, res, next) => {
   try {
     const { userId } = req.params;
-    const { name, lastname, email, password, active } = req.body;
+    const { name, lastName, email, password, active } = req.body;
     const data = await service.editUser(
-      userId, name, lastname, email, password, active
+      userId, name, lastName, email, password, active
     );
     res.status(200).json(data);
   } catch (error) {

@@ -6,9 +6,7 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 const routerApi = require("./src/routes");
 
 mongoose.connect(
-    `mongodb://${IP_SERVER}:${PORT_DB}/proyect_db`,
-    { userNewUrlParser: true, useUnifiedTopology: true},
-    (err, res) => {
+    `mongodb://${IP_SERVER}:${PORT_DB}/proyect_db`, (err, res) => {
         if(err){
             throw err;
         }else{
@@ -24,9 +22,11 @@ mongoose.connect(
 )
 
 app.get("/", (req, res) => {
-    res.send("Primer Proyecto React - Despliegue");
-  });
+    res.send( "Primer Proyecto React" );
+});
+
+routerApi(app);
+
+app.use(express.json());
+
   
-  routerApi(app);
-  
-  app.use(express.json());

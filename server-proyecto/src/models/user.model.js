@@ -4,22 +4,27 @@ const userSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  lastname: {
+
+  lastName: {
     type: String,
     require: true,
   },
+
   email: {
     type: String,
     require: true,
   },
+
   password: {
     type: String,
     require: true,
   },
+
   active: {
     type: Boolean,
     require: true,
   },
+  
 });
 
 module.exports = mongoose.model("users", userSchema);

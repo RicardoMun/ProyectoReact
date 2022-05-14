@@ -4,9 +4,11 @@ const { API_VERSION } = require("../../config");
 
 function routerApi(app) {
   const router = express.Router();
-  app.use("/api/v1", router);
 
-  /* http://localhost:3000/api/v1/people */
+  /* http://localhost:3977/api/v1 */
+  app.use("/api/v1", router);
+  
+  /* http://localhost:3977/api/v1/user */
   router.use("/users", userRouter);
 }
 
