@@ -46,9 +46,9 @@ UserRouter.get("/:userId", async (req, res, next) => {
 UserRouter.put("/:userId", async (req, res, next) => {
   try {
     const { userId } = req.params;
-    const { name, lastName, email, password, active } = req.body;
+    const { name, lastName, email, password, active, role, avatar } = req.body;
     const data = await service.editUser(
-      userId, name, lastName, email, password, active
+      userId, name, lastName, email, password, active, role, avatar
     );
     res.status(200).json(data);
   } catch (error) {

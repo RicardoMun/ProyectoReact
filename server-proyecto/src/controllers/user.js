@@ -10,6 +10,7 @@ function signUp(res, req){
     user.name = name
     user.lastName = lastName
     user.email = email
+    user.role = "root"
     user.active = true
 
     if(!password || !repeatPassword) {

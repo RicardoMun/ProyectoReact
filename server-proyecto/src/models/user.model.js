@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
 
   email: {
     type: String,
+    unique: true,
     require: true,
   },
 
@@ -20,9 +21,16 @@ const userSchema = mongoose.Schema({
     require: true,
   },
 
+  role: {
+    type: String,
+  },
+
   active: {
     type: Boolean,
-    require: true,
+  },
+
+  avatar: {
+    type: String
   },
   
 });
