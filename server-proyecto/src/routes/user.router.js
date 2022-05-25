@@ -1,9 +1,14 @@
 const express = require("express");
+const UserController = require("../controllers/user")
+const api = express.Router();
+
+api.post("/signup", UserController.signUp);
+
+module.exports = api;
+/*
+const service = new UserService();
 const UserModel = require("../models/user.model");
 const UserService = require("../services/user.service");
-const UserController = require("../controllers/user")
-const UserRouter = express.Router();
-const service = new UserService();
 
 
 UserRouter.post("/signUp", async (req, res, next) => {
@@ -67,4 +72,5 @@ UserRouter.delete("/:userId", async (req, res, next) => {
   }
 });
 
-module.exports = UserRouter;
+
+ */
